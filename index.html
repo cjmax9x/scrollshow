@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./themify-icons/themify-icons.css">
+    <title>Show on Scroll</title>
+</head>
+<body>
+    <div class="app">
+        <section id="container">
+            <div class="content">
+                <h3 class="title">Tung: Front-End</h3>
+                <p class="description">Học lập trình từ con số 0, tất cả đều tự học, yêu cầu phải tự rèn luyện mỗi ngày
+                    Học trong tình trạng nhiễm Covid-19: nên đầu óc rất chậm và mệt mỏi.
+                </p>
+            </div>
+        </section>
+    
+    
+        <section id="container-1">
+            <div class="content-1-1">
+                <h3 class="title">Tung: Front-End</h3>
+                <p class="description">Học lập trình từ con số 0, tất cả đều tự học, yêu cầu phải tự rèn luyện mỗi ngày
+                    Học trong tình trạng nhiễm Covid-19: nên đầu óc rất chậm và mệt mỏi.
+                </p>
+            </div>
+            <div class="content-1-2">
+                <h3 class="title">Tung: Front-End</h3>
+                <p class="description">Học lập trình từ con số 0, tất cả đều tự học, yêu cầu phải tự rèn luyện mỗi ngày
+                    Học trong tình trạng nhiễm Covid-19: nên đầu óc rất chậm và mệt mỏi.
+                </p>
+            </div>
+        </section>
+    
+    
+        <section id="container-2">
+            <div class="content-2">
+                <h3 class="title">Tung: Front-End</h3>
+                <p class="description">Học lập trình từ con số 0, tất cả đều tự học, yêu cầu phải tự rèn luyện mỗi ngày
+                    Học trong tình trạng nhiễm Covid-19: nên đầu óc rất chậm và mệt mỏi.
+                </p>
+            </div>
+            <div class="content-2">
+                <h3 class="title">Tung: Front-End</h3>
+                <p class="description">Học lập trình từ con số 0, tất cả đều tự học, yêu cầu phải tự rèn luyện mỗi ngày
+                    Học trong tình trạng nhiễm Covid-19: nên đầu óc rất chậm và mệt mỏi.
+                </p>
+            </div>
+            <div class="content-2">
+                <h3 class="title">Tung: Front-End</h3>
+                <p class="description">Học lập trình từ con số 0, tất cả đều tự học, yêu cầu phải tự rèn luyện mỗi ngày
+                    Học trong tình trạng nhiễm Covid-19: nên đầu óc rất chậm và mệt mỏi.
+                </p>
+            </div>
+    </div>
+    </section>
+    <script>
+        let contenE1 = document.querySelector('.content')
+        let contenE11 = document.querySelector('.content-1-1')
+        let contenE12 = document.querySelector('.content-1-2')
+        let contenE2 = document.querySelectorAll('.content-2')
+        let contentE2Length = contenE2.length
+
+        
+        document.addEventListener('scroll', tranformAnimation)
+            
+        function tranformAnimation(){
+            let contenE1XY = contenE1.getBoundingClientRect()
+            let contenE11XY = contenE11.getBoundingClientRect()
+            let contenE12XY = contenE11.getBoundingClientRect()
+            let windowHeight = window.innerHeight
+            
+            if(contenE1XY.bottom > 0){
+                contenE1.classList.add('tranform--left-right')
+            } else{
+                contenE1.classList.remove('tranform--left-right')
+            }
+
+
+            if(contenE11XY.top <= windowHeight && contenE11XY.bottom >= 0){
+                contenE11.classList.add('tranform--left-right')
+            }else{
+                contenE11.classList.remove('tranform--left-right')
+            }
+
+
+            if(contenE12XY.top <= windowHeight && contenE12XY.bottom >= 0){
+                contenE12.classList.add('tranform--right-left')
+            }else{
+                contenE12.classList.remove('tranform--right-left')
+            }
+
+            
+            for(let i=0; i<contentE2Length; i++){
+                let contenE2XY = contenE2[i].getBoundingClientRect()
+                if(contenE2XY.top <= windowHeight){
+                    contenE2[i].classList.add('tranform--zoom')
+                } else{
+                    contenE2[i].classList.remove('tranform--zoom')
+                }
+            }
+        }
+        tranformAnimation()
+    </script>
+</body>
+</html>
